@@ -35,3 +35,27 @@ def no_teen_sum(a, b, c):
     b = fix_teen(b)
     c = fix_teen(c)
     return a + b + c
+
+def round10(num):
+    if num % 10 >= 5:
+        return num - num % 10 + 10
+    else:
+        return num - num % 10
+
+def round_sum(a, b, c):
+    return round10(a) + round10(b) + round10(c)
+
+def close_far(a, b, c):
+    diff1 = abs(a - b)
+    diff2 = abs(a - c)
+    diff3 = abs(b - c)
+    return diff1 <= 1 and diff2 > 1 and diff3 > 1 or diff2 <= 1 and diff1 > 1 and diff3 > 1
+
+def make_chocolate(small, big, goal):
+    if big >= goal / 5:
+        goal = goal % 5
+    else:
+        goal = goal - 5 * big
+    if small >= goal:
+        return goal
+    return -1
